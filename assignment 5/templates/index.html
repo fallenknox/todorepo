@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo</title>
+    <style type="text/css">
+        body {
+            margin: 40px auto;
+            max-width: 650px;
+            line-height: 1.6;
+            font-size: 18px;
+            color: #444;
+            padding: 0 10px;
+            text-align: center; /* Center align the text */
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1px solid #007bff;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Divesh's Todo List</h1>
+    <table>
+        <tr>
+            <th>User</th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td><a href="/todo/{{user[0]}}" class="button">{{user[1]}}</a></td>
+                <td>
+                    <a href="/users/delete/{{user[0]}}" class="button">Delete User</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/users/register" class="button">Create a new user</a>
+</body>
+</html>
